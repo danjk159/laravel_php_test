@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         DB::listen(function ($query) {
-            Log::info('sql:' . $query->sql.' array:'.json_encode($query->bindings).' time:'.$query->time);
+             Log::channel('mysql_daily') ->info('sql:' . $query->sql . ' params:' . json_encode($query->bindings) . ' time:' . $query->time);
             // $query->bindings
             // $query->time
         });

@@ -118,7 +118,8 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
-
+    // 'log' => 'daily',
+    // 'log_max_files' => 30,
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',

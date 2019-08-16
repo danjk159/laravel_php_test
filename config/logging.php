@@ -42,7 +42,6 @@ return [
 
         'single' => [
             'driver' => 'single',
-            'tap' => [App\Logging\CustomizeFormatter::class],
             'path' => storage_path('logs/laravel.log'),
             'level' => 'debug',
         ],
@@ -53,7 +52,12 @@ return [
             'level' => 'debug',
             'days' => 14,
         ],
-
+        'mysql_daily' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/sql/mysql_daily.log'),
+            'level' => 'debug',
+            'days' => 14,
+        ],
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
