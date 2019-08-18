@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Resources\User as UserResource;
 use App\Http\Controllers\Controller;
-// use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -42,8 +42,11 @@ class UserController extends Controller
     {
         // $user= DB::select('select * from users where id=?',[$id]);
         // $user = DB::table('users')->where('id',$id)->first();
-        $user = User::where('id', $id) -> get();
-        return response()->json($user);
+        // $user = User::where('id', $id) -> get();
+        // $user = User::find( $id) -> phone;
+        // return response()->json($user);
+        return (new UserResource(User::find($id)))
+        ->additional(['code' =>'1','message'=>'test']);
     }
     /**
      * 储存一个新用户。

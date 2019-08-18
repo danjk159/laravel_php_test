@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Phone extends Model
 {
-    protected $table = 'users';
+    protected $table = 'phone';
       /**
      * 指示模型是否自动维护时间戳
      *
@@ -19,11 +19,4 @@ class User extends Model
      * @var string
      */
     protected $dateFormat = 'U';
-        /**
-     * Get the phone record associated with the user.
-     */
-    public function phone()
-    {
-        return $this->hasOne('App\Models\Phone')->select("phone");
-    }
 }
